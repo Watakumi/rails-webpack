@@ -1,5 +1,4 @@
 # Ruby on Rails + Webpack Application Template
----
 
 ## Features
 - Use [Ruby on Rails](https://rubyonrails.org/).
