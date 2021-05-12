@@ -1,24 +1,102 @@
-# README
+# Ruby on Rails + Webpack Application Template
+---
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features
+- Use [Ruby on Rails](https://rubyonrails.org/).
+- Use [webpack](https://webpack.js.org/) instead of `webpacker`.
+- Use [view_component](https://github.com/github/view_component) as a framework for building encapsulated component.
+- Use [tailwindcss](https://tailwindcss.com/) as CSS Framework.
+- Use [PostgreSQL](https://www.postgresql.org/) as database.
+- Use [Rspec](https://github.com/rspec/rspec-rails) as Testing Framework.
 
-Things you may want to cover:
+---
 
-* Ruby version
+## Usage
 
-* System dependencies
+Start the server with `docker compose`.
 
-* Configuration
+```
+$ docker compose build
+$ docker compose up
+```
 
-* Database creation
+If gems and packages is not installed...
 
-* Database initialization
+```
+$ docker compose exec web bundle install 
+$ docker compose exec yarn
+```
+⚠️ `docker compose exec` command is used when container is runnning...
 
-* How to run the test suite
+### Quick start
+Create a new template.
+```
+docker compose exec web bundle exec rails generate component Example title
 
-* Services (job queues, cache servers, search engines, etc.)
+->
+Running via Spring preloader in process 44
+      create  app/components/example_component.rb
+      invoke  rspec
+      create    spec/components/example_component_spec.rb
+      invoke  erb
+      create    app/components/example_component.html.erb
+```
 
-* Deployment instructions
+```rb
+# app/components/example_component.rb
+# frozen_string_literal: true
 
-* ...
+class ExampleComponent < ApplicationComponent
+  def initialize(title:)
+    @title = title
+  end
+
+end
+```
+
+Create a primary button with tailwindcss.
+```rb
+# app/components/example_component.html.erb
+<button class="bg-blue-500 px-4 py-2 text-sm font-semibold tracking-wider text-white rounded hover:bg-blue-600"><%= @title %></button>
+```
+
+This can be written as 
+```rb
+# app/components/example_component.rb
+# frozen_string_literal: true
+
+class ExampleComponent < ApplicationComponent
+  def initialize(title:)
+    @title = title
+  end
+
+  private
+
+  def style_element
+   {
+     primary_button: 'bg-blue-500 px-4 py-2 text-sm font-semibold tracking-wider text-white rounded hover:bg-blue-600'
+   }
+end
+
+# app/components/example_component.html.erb
+<button class="<%= styles.primary_button %>"><%= @title %></button>
+```
+
+This button can be rendered anywhere.
+```rb
+<%= render ExampleComponent.new(title: 'SampleTitle') %>
+```
+
+**It can be maintained easily viewable HTML structure by encapsulating complex css.**
+
+
+
+
+
+
+
+
+
+
+
+
