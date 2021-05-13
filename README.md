@@ -16,6 +16,7 @@ Start the server with `docker compose`.
 
 ```
 $ docker compose build # or docker-compose build
+$ docker compose run web bundle exec rails db:create
 $ docker compose up # or docker-compose up
 ```
 
