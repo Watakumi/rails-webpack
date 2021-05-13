@@ -2,7 +2,6 @@ const {WebpackManifestPlugin} = require('webpack-manifest-plugin');
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
   entry: {
     app: path.resolve(__dirname, './frontend/javascripts/application.js')
   },
@@ -55,15 +54,4 @@ module.exports = {
   plugins: [
     new WebpackManifestPlugin()
   ],
-  devServer: {
-    disableHostCheck: true,
-    hot: true,
-    host: '0.0.0.0', 
-    port: 8080,
-    headers: {
-      "Access-Control-Allow-Origin": "*"
-    },
-    contentBase: path.resolve(__dirname, './public/assets')
-  },
-  devtool: 'inline-source-map'
 }
