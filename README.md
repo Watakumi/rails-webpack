@@ -15,15 +15,15 @@
 Start the server with `docker compose`.
 
 ```
-$ docker compose build
-$ docker compose up
+$ docker compose build # or docker-compose build
+$ docker compose up # or docker-compose up
 ```
 
 If gems and packages is not installed...
 
 ```
-$ docker compose exec web bundle install 
-$ docker compose exec yarn
+$ docker compose exec web bundle install
+$ docker compose exec web yarn
 ```
 ⚠️ `docker compose exec` command is used when container is runnning...
 
