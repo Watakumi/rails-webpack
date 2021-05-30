@@ -3,6 +3,7 @@
 ## Features
 - Use [Ruby on Rails](https://rubyonrails.org/).
 - Use [webpack](https://webpack.js.org/) instead of `webpacker`.
+- Use [stimulus](https://stimulus.hotwire.dev/) as a JS framework.
 - Use [view_component](https://github.com/github/view_component) as a framework for building encapsulated component.
 - Use [tailwindcss](https://tailwindcss.com/) as CSS Framework.
 - Use [PostgreSQL](https://www.postgresql.org/) as database.
