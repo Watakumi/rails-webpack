@@ -34,5 +34,8 @@ module RailsWebpack
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # View Components Preview
+    config.view_component.preview_paths << "#{Rails.root}/lib/component_previews"
   end
 end
